@@ -1,0 +1,91 @@
+<h2>Leave a comment</h2>
+<p>
+  Comments posted here will go into a moderation queue and the owner of the site will be notified via Slack.
+  Once approved, it will be pulled into the content and the site will be regenerated and deployed.
+</p>
+<p>
+  Read about <a href="/about">how this works</a>.
+</p>
+
+        <div className="container">
+          <section>
+            <label>Native Input:</label>
+            <input name="Native" ref={register} />
+          </section>
+
+          <section>
+            <label>MUI Checkbox</label>
+            <Controller
+              as={<Checkbox />}
+              name="Checkbox"
+              type="checkbox"
+              control={control}
+            />
+          </section>
+
+          <section>
+            <label>Radio Group</label>
+            <Controller
+              as={
+                <RadioGroup aria-label="gender" name="gender1">
+                  <FormControlLabel
+                    value="female"
+                    control={<Radio />}
+                    label="Female"
+                  />
+                  <FormControlLabel
+                    value="male"
+                    control={<Radio />}
+                    label="Male"
+                  />
+                </RadioGroup>
+              }
+              name="RadioGroup"
+              control={control}
+            />
+          </section>
+
+          <section>
+            <label>MUI TextField</label>
+            <Controller as={<TextField />} name="TextField" control={control} />
+          </section>
+
+          <section>
+            <label>MUI Select</label>
+            <Controller
+              as={
+                <Select>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              }
+              name="Select"
+              control={control}
+            />
+          </section>
+
+          <section>
+            <label>MUI Switch</label>
+            <Controller
+              as={<Switch value="checkedA" />}
+              type="checkbox"
+              name="switch"
+              control={control}
+            />
+          </section>
+
+          <section>
+            <label>React Select</label>
+            <Controller
+              as={<ReactSelect />}
+              options={options}
+              name="ReactSelect"
+              isClearable
+              control={control}
+              onChange={([selected]) => {
+                return { value: selected };
+              }}
+            />
+          </section>
+        </div>
